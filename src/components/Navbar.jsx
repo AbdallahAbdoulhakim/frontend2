@@ -1,6 +1,7 @@
 import React from "react";
 import useApi from "../hooks/useApi";
 import LoaderBar from "../assets/img/bars.svg";
+import "../styles/navbar.css";
 
 const Navbar = () => {
   const { data, error, loading } = useApi("/menu-items/all");

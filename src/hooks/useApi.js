@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axiosInstance from "../api/axiosInstance";
 
-const useApi = (endpoint, method = "GET", body = null, dependencies = []) => {
+const useApi = (endpoint, method = "GET", body = null) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ const useApi = (endpoint, method = "GET", body = null, dependencies = []) => {
     };
 
     fetchData();
-  }, dependencies); // Re-run the effect if dependencies change
+  }, [endpoint, method, body]); // Re-run the effect if dependencies change
 
   return { data, error, loading };
 };

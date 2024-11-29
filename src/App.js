@@ -5,6 +5,7 @@ import Topbar from "./components/Topbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { DataProvider } from "./context/DataContext";
+import "./styles/app.css";
 
 const App = () => {
   useEffect(() => {
@@ -16,6 +17,26 @@ const App = () => {
       window.addEventListener("load", () => {
         preloader.remove();
       });
+    }
+    /**
+     * Scroll top button
+     */
+    const scrollTop = document.querySelector(".scroll-top");
+    if (scrollTop) {
+      const togglescrollTop = function () {
+        window.scrollY > 100
+          ? scrollTop.classList.add("active")
+          : scrollTop.classList.remove("active");
+      };
+      window.addEventListener("load", togglescrollTop);
+      document.addEventListener("scroll", togglescrollTop);
+      scrollTop.addEventListener(
+        "click",
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        })
+      );
     }
 
     /**
