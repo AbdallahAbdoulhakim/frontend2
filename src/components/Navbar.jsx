@@ -76,7 +76,9 @@ const Navbar = () => {
 
   return (
     <nav id="navbar" className="navbar">
-      {loading && <img src={LoaderBar} alt="loading menu..." />}
+      {loading && (
+        <img src={LoaderBar} alt="loading menu..." style={{ height: "4vh" }} />
+      )}
       {!loading && error && (
         <div className="alert alert-danger">Menu failed to load!</div>
       )}
