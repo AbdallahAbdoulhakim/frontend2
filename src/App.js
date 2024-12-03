@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { DataProvider } from "./context/DataContext";
 import "./styles/app.css";
+import ArticleDetail from "./components/Blog/ArticleDetail";
 
 const App = () => {
   useEffect(() => {
@@ -126,6 +127,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/blog/article/:id" element={<ArticleDetail />} />
         </Routes>
         <Footer />
       </DataProvider>
